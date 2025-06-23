@@ -12,7 +12,7 @@ const Dictionary = (() => {
 
   const API_CONFIG = {
     url: "https://openrouter.ai/api/v1/chat/completions",
-    key: "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",
+    key: "Enter you api key- create it from openrouter ( refer the README please for instructions) ",
     model: "mistralai/mistral-7b-instruct"
   };
 
