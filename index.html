@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bookworm's Delight</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles/classic.css" id="theme-style">
+</head>
+<body>
+  <div class="app-container">
+    <header class="app-header">
+      <div class="header-content">
+        <h1><i class="fas fa-book-open"></i> Bookworm's Delight</h1>
+        <p>Professional PDF Reader with Instant Dictionary</p>
+      </div>
+    </header>
+
+    <div class="toolbar">
+      <div class="toolbar-section">
+        <button id="open-pdf" class="tool-button primary">
+          <i class="fas fa-folder-open"></i> Open PDF
+        </button>
+        <input type="file" id="file-input" accept="application/pdf" hidden>
+      </div>
+
+      <div class="toolbar-section">
+        <button id="single-mode" class="tool-button active">
+          <i class="fas fa-file-alt"></i> Single
+        </button>
+        <button id="scroll-mode" class="tool-button">
+          <i class="fas fa-scroll"></i> Scroll
+        </button>
+      </div>
+
+      <div class="toolbar-section">
+        <button id="prev-page" class="tool-button circle" title="Previous Page">
+          <i class="fas fa-chevron-left"></i>
+        </button>
+        
+        <div class="page-control">
+          <input type="number" id="page-num" min="1" value="1">
+          <span class="page-count">of <span id="page-count">0</span></span>
+        </div>
+        
+        <button id="next-page" class="tool-button circle" title="Next Page">
+          <i class="fas fa-chevron-right"></i>
+        </button>
+      </div>
+
+      <div class="toolbar-section">
+        <div class="zoom-controls">
+          <button id="zoom-out" class="tool-button circle" title="Zoom Out">
+            <i class="fas fa-search-minus"></i>
+          </button>
+          <span class="zoom-percent" id="zoom-percent">130%</span>
+          <button id="zoom-in" class="tool-button circle" title="Zoom In">
+            <i class="fas fa-search-plus"></i>
+          </button>
+          <button id="zoom-reset" class="tool-button" title="Fit to Width">
+            <i class="fas fa-expand"></i> Fit
+          </button>
+        </div>
+        
+        <div class="toolbar-section">
+          
+            <div class="theme-dropdown">
+              <button class="tool-button">
+                <i class="fas fa-palette"></i> Theme <i class="fas fa-chevron-down"></i>
+              </button>
+              <div class="theme-dropdown-content">
+                <div class="theme-option" data-theme="classic">
+                  <i class="fas fa-star"></i> Classic
+                </div>
+                <div class="theme-option" data-theme="pleasant">
+                  <i class="fas fa-heart"></i> Pleasant
+                </div>
+                <div class="theme-option" data-theme="sunshine">
+                  <i class="fas fa-sun"></i> Sunshine
+                </div>
+                <div class="theme-option" data-theme="goofy">
+                  <i class="fas fa-ghost"></i> Goofy
+                </div>
+              </div>
+            </div>
+          </div>
+      </div>
+    </div>
+
+    <div class="main-content">
+      <div id="pdf-viewer-container">
+        <div id="pdf-container"></div>
+      </div>
+      
+      <div class="dictionary-panel">
+        <div class="panel-header">
+          <h3><i class="fas fa-book"></i> Dictionary</h3>
+          <button id="close-dict" class="icon-button">
+            <i class="fas fa-times"></i>
+          </button>
+        </div>
+        <div class="panel-body">
+          <div id="dict-loading" class="loading-state">
+            <div class="spinner"></div>
+            <span>Analyzing text...</span>
+          </div>
+          <div id="dict-content">
+            <div class="selected-word" id="dict-word"></div>
+            <div class="definition" id="dict-meaning"></div>
+            <button id="show-example" class="secondary-button">
+              <i class="fas fa-lightbulb"></i> Show Example
+            </button>
+            <div class="example" id="dict-example"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="loading-overlay" class="loading-overlay">
+      <div class="loading-content">
+        <div class="spinner large"></div>
+        <p>Loading PDF document...</p>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.10.377/pdf.min.js"></script>
+  <script src="pdfviewer.js"></script>
+  <script src="dictionary.js"></script>
+  <script src="theme.js"></script>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      PDFViewer.init();
+      Dictionary.init();
+      ThemeManager.init();
+    });
+  </script>
+
+</body>
+</html>
+
+
+    
