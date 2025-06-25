@@ -3,7 +3,7 @@
 
 it's very easy to use .
  download the zip and extract all the files .
-  and u will futhure find pdfjs zip in it ( mozilla's pre built lib) , extract that one too.
+  and u will futher find pdfjs zip in it ( mozilla's pre built lib) , extract that one too.
 
 in dictionary.js file , on 15th line u will have to enter ur api key... 
 
